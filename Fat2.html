@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Love Fatini</title>
+	<style>
+		/* Eliminate all default page spacing */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: 'Segoe UI', sans-serif;
+		}
+
+		body, html {
+			width: 100%;
+			height: 100vh;
+			overflow: hidden; /* Disables all page scrolling up or down */
+			background-color: #0b1329; /* Deep midnight blue background */
+		}
+
+		/* Top Floating Header Card Box Overlay */
+		header {
+			position: absolute;
+			top: 20px;
+			left: 20px;
+			z-index: 100;
+			padding: 12px 24px;
+			backdrop-filter: blur(8px);
+			-webkit-backdrop-filter: blur(8px);
+		}
+
+		header h1 {
+			font-size: 1.4rem;
+			color: #fff;
+			font-weight: 600;
+			letter-spacing: 0.5px;
+		}
+
+		/* Full Screen Slider Container */
+		.slider-container {
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+
+		/* Individual Slides */
+		.slide {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.6s ease-in-out, visibility 0.6s;
+			background-color: #0b1329;
+		}
+
+		.slide.active {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		/* Forces image to scale down cleanly inside the viewport frame */
+		.slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		/* Centering container layout for text screens */
+		.slide-text-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			padding: 2rem;
+			text-align: center;
+		}
+
+		.slide-text-container h2 {
+			font-size: 3rem;
+			color: #fff;
+			margin-bottom: 1.5rem;
+			text-shadow: 0 0 15px rgba(56, 189, 248, 0.6);
+		}
+
+		.slide-text-container p {
+			font-size: 1.5rem;
+			color: #94a3b8;
+		}
+
+		/* Floating Navigation Buttons */
+		.nav-btn {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgb(247, 244, 244);
+			color: #16324a;
+			border: 1px solid rgba(255,255,255,0.2);
+			padding: 1rem;
+			font-size: 2rem;
+			cursor: pointer;
+			border-radius: 50%;
+			width: 60px;
+			height: 60px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: all 0.3s;
+			z-index: 10;
+		}
+
+		.nav-btn:hover {
+			background: rgba(28, 28, 66, 0.8);
+			border-color: #fbfdfe;
+			color: #fff;
+		}
+
+		.prev { left: 30px; display: none; } /* Starts hidden on page 1 */
+		.next { right: 30px; }
+
+		/* Floating Bottom Buttons Styling */
+		.page-nav-btn {
+			position: absolute;
+			bottom: 30px;
+			background: rgba(253, 254, 254, 0.9);
+			color: #1e293b;
+			padding: 0.8rem 1.5rem;
+			text-decoration: none;
+			font-weight: bold;
+			border-radius: 30px;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+			z-index: 100;
+			transition: all 0.3s ease;
+		}
+
+		.page-nav-btn:hover {
+			background: #f9fbfb;
+			transform: scale(1.05);
+		}
+
+		.back-page-btn { left: 30px; display: block; }
+		.next-page-btn { right: 30px; display: none; }
+
+		/* Integrated Fixed Footer Layout */
+		footer {
+			position: absolute;
+			bottom: 15px;
+			left: 50%;
+			transform: translateX(-50%);
+			color: #94a3b8;
+			text-align: center;
+			font-size: 0.85rem;
+			width: 100%;
+			z-index: 10;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Floating Overlay Header Card Box -->
+	<header>
+		<h1>Fatini Cantik</h1>
+	</header>
+
+	<!-- Full Screen Interactive Slide Arena -->
+	<div class="slider-container">
+		<!-- Navigation Control Elements -->
+		<button class="nav-btn prev" id="prev-arrow-btn">❮</button>
+		<button class="nav-btn next" id="next-arrow-btn">❯</button>
+
+		<!-- Bottom Left & Right Navigation Anchors -->
+		<a href="Index.html" id="back-home-btn" class="page-nav-btn back-page-btn">&larr; Back</a>
+		<a href="Fat3.html" id="final-page-btn" class="page-nav-btn next-page-btn">Next &rarr;</a>
+
+		<!-- Slide 1: Ready Announcement -->
+		<div class="slide active">
+			<div class="slide-text-container">
+				<h2>Are you reaadyyyyyyyy ?????</h2>
+				<p>Go to next slide if you're ready !!!!!!</p>
+			</div>
+		</div>
+
+		<!-- Slide 2: Sure check -->
+		<div class="slide">
+			<div class="slide-text-container">
+				<h2>Are you sureeee ?????</h2>
+			</div>
+		</div>
+
+		<!-- Slide 3: Countdown One -->
+		<div class="slide">
+			<div class="slide-text-container">
+				<h2>ONEEEEEEEEE</h2>
+			</div>
+		</div>
+
+		<!-- Slide 4: Countdown Two -->
+		<div class="slide">
+			<div class="slide-text-container">
+				<h2>TWOOOOOOOOOOOO</h2>
+			</div>
+		</div>
+
+		<!-- Slide 5: Countdown Three -->
+		<div class="slide">
+			<div class="slide-text-container">
+				<h2>THREEEEEEEEEEE</h2>
+			</div>
+		</div>
+
+		<!-- Slide 6: Presenting title -->
+		<div class="slide">
+			<div class="slide-text-container">
+				<h2>PRESENTING MY YAYANGGGGGGGG !!!!!!!!!!</h2>
+			</div>
+		</div>
+
+		<!-- Slide 7 to 16: Photo Gallery Array -->
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 4.jpg" alt="Fatini 1"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 1.jpg" alt="Fatini 2"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 2.jpg" alt="Fatini 3"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 3.jpg" alt="Fatini 4"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 5.jpg" alt="Fatini 5"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 6.jpg" alt="Fatini 6"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 7.jpg" alt="Fatini 7"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 8.jpg" alt="Fatini 8"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 9.jpg" alt="Fatini 9"></div>
+		<div class="slide"><img src="c:\Users\ad\Fatini\Fatini 10.jpg" alt="Fatini 10"></div>
+
+		<!-- Slide 17: Intermission Question -->
+		<div class="slide">
+			<div class="slide-text-container">
+				<h2>So preeeettyyyyyyyy isn't ????</h2>
+			</div>
+		</div>
+
+		<!-- Slide 18: Adhan Introduction -->
+		<div class="slide">
+			<div class="slide-text-container">
+				<h2>This is me the luckiest one</h2>
+			</div>
+		</div>
+
+		<!-- Slide 19: Adhan Photo 1 -->
+		<div class="slide"><img src="c:\Users\ad\Fatini\Adhan 1.jpg" alt="Adhan 1"></div>
+
+		<!-- Slide 20: Adhan Photo 2 -->
+		<div class="slide"><img src="c:\Users\ad\Fatini\Adhan 2.jpg" alt="Adhan 2"></div>
+
+		<!-- Slide 21: Final Couple Text Title -->
+		<div class="slide">
+			<div class="slide-text-container">
+				<h2>And this is us !</h2>
+			</div>
+		</div>
+
+		<!-- Slide 22: Couple Final Photo Target -->
+		<div class="slide"><img src="c:\Users\ad\Fatini\Us.jpg" alt="Us"></div>
+	</div>
+
+	<!-- Fixed Footer Segment -->
+	<footer>
+		<p>&copy; 2026 Fatini Website. Only Fatini Reserved.</p>
+	</footer>
+
+	<!-- Interactive Engine Script -->
+	<script>
+		let currentSlideIndex = 0;
+		const slides = document.querySelectorAll('.slide');
+		const nextPageBtn = document.getElementById('final-page-btn');
+		const backHomeBtn = document.getElementById('back-home-btn');
+		const nextArrowBtn = document.getElementById('next-arrow-btn');
+		const prevArrowBtn = document.getElementById('prev-arrow-btn');
+
+		function checkSlideState() {
+			// Toggles bottom-left Back Page anchor and left arrow visibility dynamically
+			if (currentSlideIndex === 0) {
+				backHomeBtn.style.display = 'block';
+				prevArrowBtn.style.display = 'none';
+			} else {
+				backHomeBtn.style.display = 'none';
+				prevArrowBtn.style.display = 'flex';
+			}
+
+			// Toggles bottom-right Next Page button anchor link visibility on final slot execution
+			if (currentSlideIndex === slides.length - 1) {
+				nextPageBtn.style.display = 'block';
+				nextArrowBtn.style.display = 'none';
+			} else {
+				nextPageBtn.style.display = 'none';
+				nextArrowBtn.style.display = 'flex';
+			}
+		}
+
+		function changeSlide(direction) {
+			slides[currentSlideIndex].classList.remove('active');
+			currentSlideIndex += direction;
+
+			if (currentSlideIndex >= slides.length) {
+				currentSlideIndex = 0;
+			} else if (currentSlideIndex < 0) {
+				currentSlideIndex = slides.length - 1;
+			}
+
+			slides[currentSlideIndex].classList.add('active');
+			checkSlideState();
+		}
+
+		// Explicit Event Listeners Assignment
+		nextArrowBtn.addEventListener('click', function() { changeSlide(1); });
+		prevArrowBtn.addEventListener('click', function() { changeSlide(-1); });
+
+		// Engine Initialization Trigger
+		window.onload = function() {
+			checkSlideState();
+		};
+	</script>
+
+</body>
+</html>
